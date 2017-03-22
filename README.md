@@ -28,10 +28,10 @@ dependencies {
 
 
 <h2>Customization</h2>
-CircleView allows you to customize its base default fields for your personal use.
-The list can be found within the attrs.xml file.
+CircleView allows you to customize its default fields for your personal use.
+The attribute list can be found within the attrs.xml file.
 
-The configuration below corresponds to the gif's 
+Below is the configuration for the circleView presented on the gif
 
 ```xml
 <rjsv.circularview.CircleView
