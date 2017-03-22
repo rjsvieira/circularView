@@ -5,6 +5,28 @@ A 'Google Fit'-like implementation of the circular view
 
 Special thanks to @carlossotelo for his suggestions on anti-aliasing solutions
 
+<h2>Include in your project</h2>
+
+<h4> In your root/build.gradle</h4>
+
+```groovy
+allprojects {
+  repositories {
+  ...
+  maven { url 'https://jitpack.io' }
+  }
+}  
+```
+
+<h4> In your app/build.gradle</h4>
+
+```groovy
+dependencies {
+  compile 'com.github.rjsvieira:circularView:1.0.0'
+}
+```
+
+
 <h2>Customization</h2>
 CircleView allows you to customize its base default fields for your personal use.
 The list can be found within the attrs.xml file.
