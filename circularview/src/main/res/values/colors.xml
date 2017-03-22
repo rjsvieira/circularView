@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<!-- CircleView -->
+	<color name="color_arc">#ffffff</color>
+	<color name="color_arc_border">#000000</color>
+	<color name="color_progress">#00ccff</color>
+	<color name="color_indicator">#FF007491</color>
+	<color name="color_text">#000000</color>
+
+</resources>

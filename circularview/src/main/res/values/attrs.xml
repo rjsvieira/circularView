@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="CircleView">
+		<attr name="progressCurrentValue" format="float"/>
+		<attr name="progressMaximumValue" format="float"/>
+		<attr name="progressMinimumValue" format="float"/>
+		<attr name="progressStepValue" format="float"/>
+		<attr name="progressWidth" format="dimension"/>
+		<attr name="progressColor" format="color"/>
+		<attr name="progressBarSquared" format="boolean"/>
+
+		<attr name="hasIndicator" format="boolean"/>
+		<attr name="indicatorColor" format="color"/>
+		<attr name="indicatorRadius" format="integer"/>
+
+		<attr name="arcWidth" format="dimension"/>
+		<attr name="arcColor" format="color"/>
+		<attr name="arcHasBorder" format="boolean"/>
+		<attr name="arcBorderColor" format="color"/>
+
+		<attr name="textEnabled" format="boolean"/>
+		<attr name="textSize" format="dimension"/>
+		<attr name="textColor" format="color"/>
+		<attr name="textFont" format="string"/>
+
+		<attr name="clockwise" format="boolean"/>
+		<attr name="enabled" format="boolean"/>
+	</declare-styleable>
+</resources>
