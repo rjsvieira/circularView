@@ -75,6 +75,13 @@ public class CircleViewAnimation extends Animation implements Disposable {
         return this;
     }
 
+    public CircleViewAnimation setTimerOperationOnFinish(Runnable r){
+        if(r!=null){
+            timerOperation = r;
+        }
+        return this;
+    }
+
     // Overridden values
     public void start(float startValue, float endValue) {
         if (!isAnimationRunning) {
