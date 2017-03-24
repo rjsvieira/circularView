@@ -105,7 +105,12 @@ public interface CircleViewChangeListener {
 
 <h2>CircleView Animation (Wrapper)</h2>
 
-In order to facilitate animations (because yeah, animations are the coolest part of views), the custom CircleViewAnimation wrapper has been added. Configurations are few and easy to implement. Consider the following example :
+In order to facilitate animations (because yeah, animations are the coolest part of views), the custom CircleViewAnimation wrapper has been added. Configurations are few and easy to implement. 
+Notes : 
+1) The AnimationListener is bound to the View. Thus said, if the Activity goes to the background, the animation will be briefly paused until it comes back to the foreground.
+2) To complement the previous point, the method <b>setTimerOperationOnFinish</b> allows you to specify a Runnable that will run at the end of the duration regardless of the Activity's state
+
+Consider the following example :
 
 ```java
 CircleView circleView = (CircleView) findViewById(R.id.circle_view);
