@@ -83,3 +83,56 @@ Below is the configuration for the circleView presented on the gif
 |    textFont    |    string    |     Specifies the custom font attribute | Typeface.DEFAULT |
 |    clockwise    |    boolean    |     Specifies whether the CircleView takes a clockwise or a counter-clockwise orientation    | true |
 |    enabled    |    boolean    |     Specifies whether the user can interact (changing the progress) with the CircleView or not. Made with the intent of allowing the developer to lock the value and operate it without user interaction    | true |
+
+
+
+<h2>CircleView Change Listener<h2>
+
+You can keep track of the values when they change as well as the moment when the point tracking starts or stops.
+
+```java
+public interface CircleViewChangeListener {
+
+    void onPointsChanged(CircleView circleView, float points);
+
+    void onStartTracking(CircleView circleView);
+
+    void onStopTracking(CircleView circleView);
+
+}
+```
+
+
+<h2>CircleView Animation (Wrapper)<h2>
+
+In order to facilitate animations (because yeah, animations are the coolest part of views), the custom CircleViewAnimation wrapper has been added. Configurations are few and easy to implement. Consider the following example :
+
+```java
+CircleView circleView = (CircleView) findViewById(R.id.circle_view);
+CircleViewAnimation circleViewAnimation = new CircleViewAnimation(circleView)
+ 	.setAnimationStyle(AnimationStyle.CONTINUOUS)
+    	.setDuration(circleView.getProgressValue())
+        .setCustomAnimationListener(new Animation.AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {
+			    // Animation Starts
+			}
+
+			@Override
+			public void onAnimationEnd(Animation animation) {
+			    // Animation Ends
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+
+            }
+        }).setTimerOperationOnFinish(new Runnable() {
+            @Override
+            public void run() {
+                // Run when the duration reaches 0. Regardless of the AnimationLifecycle or main thread.
+                // Runs and triggers on background.
+            }
+        })
+        .setCustomInterpolator(new LinearInterpolator());
+```
