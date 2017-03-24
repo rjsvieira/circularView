@@ -86,7 +86,7 @@ Below is the configuration for the circleView presented on the gif
 
 
 
-<h2>CircleView Change Listener<h2>
+<h2>CircleView Change Listener</h2>
 
 You can keep track of the values when they change as well as the moment when the point tracking starts or stops.
 
@@ -103,7 +103,7 @@ public interface CircleViewChangeListener {
 ```
 
 
-<h2>CircleView Animation (Wrapper)<h2>
+<h2>CircleView Animation (Wrapper)</h2>
 
 In order to facilitate animations (because yeah, animations are the coolest part of views), the custom CircleViewAnimation wrapper has been added. Configurations are few and easy to implement. Consider the following example :
 
