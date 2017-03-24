@@ -314,7 +314,7 @@ public class CircleView extends View {
             progressAngle = convertProgressToAngle(newValue);
         }
         if (circleViewChangeListener != null) {
-            circleViewChangeListener.onPointsChanged(this, progressCurrentValue, false);
+            circleViewChangeListener.onPointsChanged(this, progressCurrentValue);
         }
         updateIndicatorPosition();
         invalidate();

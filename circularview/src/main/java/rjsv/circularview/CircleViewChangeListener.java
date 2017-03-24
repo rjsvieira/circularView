@@ -2,7 +2,7 @@ package rjsv.circularview;
 
 public interface CircleViewChangeListener {
 
-    void onPointsChanged(CircleView circleView, float points, boolean fromUser);
+    void onPointsChanged(CircleView circleView, float points);
 
     void onStartTracking(CircleView circleView);
 
