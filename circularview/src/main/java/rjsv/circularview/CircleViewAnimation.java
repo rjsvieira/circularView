@@ -65,7 +65,7 @@ public class CircleViewAnimation extends Animation implements Disposable {
 
     public CircleViewAnimation setCustomAnimationListener(AnimationListener listener) {
         this.circleViewAnimationListener.registerAnimationListener(listener);
-        setAnimationListener(circleViewAnimationListener);
+        setAnimationListener(listener != null ? circleViewAnimationListener : null);
         return this;
     }
 
@@ -75,8 +75,8 @@ public class CircleViewAnimation extends Animation implements Disposable {
         return this;
     }
 
-    public CircleViewAnimation setTimerOperationOnFinish(Runnable r){
-        if(r!=null){
+    public CircleViewAnimation setTimerOperationOnFinish(Runnable r) {
+        if (r != null) {
             timerOperation = r;
         }
         return this;

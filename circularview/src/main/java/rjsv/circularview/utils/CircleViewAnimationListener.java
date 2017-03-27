@@ -20,11 +20,15 @@ public class CircleViewAnimationListener implements Animation.AnimationListener 
         this.listeners = new ArrayList<>();
     }
 
-    public void registerAnimationListener(Animation.AnimationListener listener){
-        this.listeners.add(listener);
+    public void registerAnimationListener(Animation.AnimationListener listener) {
+        if (listener != null) {
+            this.listeners.add(listener);
+        } else {
+            this.unregisterAnimationListeners();
+        }
     }
 
-    public void unregisterAnimationListeners(){
+    public void unregisterAnimationListeners() {
         this.listeners.clear();
     }
 
