@@ -1,7 +1,7 @@
 # CircularView
 A 'Google Fit'-like implementation of the circular view
 
-![text](https://media.giphy.com/media/XZaRUFibRfyBa/giphy.gif)
+![text](circularview.gif)
 
 Special thanks to @carlossotelo for his suggestions on anti-aliasing solutions
 
