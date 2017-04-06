@@ -22,7 +22,7 @@ allprojects {
 
 ```groovy
 dependencies {
-  compile 'com.github.rjsvieira:circularView:1.0.0'
+  compile 'com.github.rjsvieira:circularView:1.1.0'
 }
 ```
 
