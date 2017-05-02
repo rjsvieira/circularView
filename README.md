@@ -6,7 +6,8 @@ A 'Google Fit'-like implementation of the circular view
 ![Minimum SDK](https://img.shields.io/badge/minSdkVersion%20-14-blue.svg)
 
 
-![text](circularview.gif)
+<img src="circularview.gif" height="275" width="275"><img src="periodic.gif" height="275" width="275"><img src="continuous.gif" height="275" width="275">
+
 
 Special thanks to @carlossotelo for his suggestions on anti-aliasing solutions
 
@@ -36,7 +37,7 @@ dependencies {
 CircleView allows you to customize its default fields for your personal use.
 The attribute list can be found within the attrs.xml file.
 
-Below is the configuration for the circleView presented on the gif
+Below is the configuration for the circleView presented on the first gif
 
 ```xml
 <rjsv.circularview.CircleView
