@@ -1,12 +1,13 @@
 # CircularView
-A 'Google Fit'-like implementation of the circular view
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CircularView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5524) 
 ![Current Version](https://img.shields.io/badge/Current%20Version-1.1.0-brightgreen.svg)
 ![Minimum SDK](https://img.shields.io/badge/minSdkVersion%20-14-blue.svg)
 
 
-<img src="circularview.gif" height="275" width="275"><img src="periodic.gif" height="275" width="275"><img src="continuous.gif" height="275" width="275">
+<img src="images/banner.png">
+
+<img src="images/bcircularview.gif" height="275" width="275"><img src="images/bperiodic.gif" height="275" width="275"><img src="images/bcontinuous.gif" height="275" width="275">
 
 
 Special thanks to @carlossotelo for his suggestions on anti-aliasing solutions
