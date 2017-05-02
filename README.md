@@ -7,7 +7,11 @@
 
 <img src="images/banner.png">
 
-<img src="images/circularview.gif" height="275" width="275"><img src="images/periodic.gif" height="275" width="275"><img src="images/continuous.gif" height="275" width="275">
+
+![text](images/circularview.gif)
+<br>
+
+<img src="images/periodic.gif" height="275" width="275"><img src="images/continuous.gif" height="275" width="275">
 
 
 Special thanks to @carlossotelo for his suggestions on anti-aliasing solutions
