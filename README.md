@@ -10,7 +10,7 @@
 <img src="https://github.com/rjsvieira/circularView/blob/master/images/circularview.gif" width="33%"><img src="images/periodic.gif" height="275" width="275"><img src="images/continuous.gif" height="275" width="275">
 
 
-Special thanks to @carlossotelo for his suggestions on anti-aliasing solutions
+A special shoutout to <b>@carlossotelo</b> for his suggestions on anti-aliasing solutions
 
 <h2>Include in your project</h2>
 
