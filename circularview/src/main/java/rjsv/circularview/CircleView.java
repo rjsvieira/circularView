@@ -36,6 +36,7 @@ public class CircleView extends View {
     private float progressWidth = 20;
     private float progressAngle = 0;
     private float progressStep = 0;
+    private boolean progressStepAsInteger = false;
     private Paint progressPaint;
     /**
      * Arc Configuration
@@ -107,6 +108,7 @@ public class CircleView extends View {
             progressMinimumValue = a.getFloat(R.styleable.CircleView_progressMinimumValue, progressMinimumValue);
             progressMaximumValue = a.getFloat(R.styleable.CircleView_progressMaximumValue, progressMaximumValue);
             progressStep = a.getFloat(R.styleable.CircleView_progressStepValue, progressStep);
+            progressStepAsInteger = a.getBoolean(R.styleable.CircleView_progressStepAsInteger, progressStepAsInteger);
 
             progressWidth = (int) a.getDimension(R.styleable.CircleView_progressWidth, progressWidth);
             progressColor = a.getColor(R.styleable.CircleView_progressColor, progressColor);
@@ -118,7 +120,6 @@ public class CircleView extends View {
 
             textSize = (int) a.getDimension(R.styleable.CircleView_textSize, textSize);
             textColor = a.getColor(R.styleable.CircleView_textColor, textColor);
-            textEnabled = a.getBoolean(R.styleable.CircleView_textEnabled, textEnabled);
             textEnabled = a.getBoolean(R.styleable.CircleView_textEnabled, textEnabled);
             String textTypeFacePath = a.getString(R.styleable.CircleView_textFont);
             if (textTypeFacePath != null && GeneralUtils.fileExistsInAssets(getContext(), textTypeFacePath)) {
@@ -209,12 +210,12 @@ public class CircleView extends View {
             canvas.scale(-1, 1, arcRect.centerX(), arcRect.centerY());
         }
         if (textEnabled) {
-            String textPoint = String.valueOf(progressCurrentValue);
+            String textPoint = progressStepAsInteger ? String.valueOf((int) progressCurrentValue) : String.valueOf(progressCurrentValue);
             textPaint.getTextBounds(textPoint, 0, textPoint.length(), textRect);
             // center the text
             int xPos = canvas.getWidth() / 2 - textRect.width() / 2;
             int yPos = (int) ((arcRect.centerY()) - ((textPaint.descent() + textPaint.ascent()) / 2));
-            canvas.drawText(String.valueOf(progressCurrentValue), xPos, yPos, textPaint);
+            canvas.drawText(textPoint, xPos, yPos, textPaint);
         }
         if (arcHasBorder) {
             canvas.drawArc(arcRect, ANGLE_OFFSET, 360, false, arcBorderPaint);
@@ -363,6 +364,14 @@ public class CircleView extends View {
     }
 
     // Setters and Getters
+    public boolean isProgressStepAsInteger() {
+        return progressStepAsInteger;
+    }
+
+    public void setProgressStepAsInteger(boolean progressStepAsInteger) {
+        this.progressStepAsInteger = progressStepAsInteger;
+    }
+
     public void setProgressValue(float progressValue) {
         if (progressValue >= progressMinimumValue) {
             if (progressValue > progressMaximumValue) {

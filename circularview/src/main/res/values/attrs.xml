@@ -5,6 +5,7 @@
 		<attr name="progressMaximumValue" format="float"/>
 		<attr name="progressMinimumValue" format="float"/>
 		<attr name="progressStepValue" format="float"/>
+		<attr name="progressStepAsInteger" format="boolean"/>
 		<attr name="progressWidth" format="dimension"/>
 		<attr name="progressColor" format="color"/>
 		<attr name="progressBarSquared" format="boolean"/>
