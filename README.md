@@ -61,6 +61,7 @@ Below is the configuration for the circleView presented on the first gif
   circleview:progressMaximumValue="10"
   circleview:progressMinimumValue="0"
   circleview:progressStepValue="1"
+  circleview:progressStepAsInteger="false"
   circleview:progressWidth="15dp"
   circleview:textColor="@color/sample_green"
   circleview:textEnabled="true"
@@ -75,6 +76,7 @@ Below is the configuration for the circleView presented on the first gif
 |    progressMaximumValue    |    float    |     The maximum allowed value of the circle view    | 100 | 
 |    progressMinimumValue    |    float    |     The minimum allowed value of the circle view    |  0  |
 |    progressStepValue    |    float    |      The step allows the developer to set a constraint for the values the user can choose. If different from 0, the step will be considered and whenever the user moves the progress to a non-integer value, it will round it to its <i>Ceiling</i> or <i>Floor</i> (whichever is closer)    | 0  |
+|    progressStepAsInteger    |    boolean    |      The step allows the developer to constraint the value to an integer rather than a float  |  false  |
 |    progressBarSquared    |    boolean    |     If there is no indicator overlapping it, the progress bar can be set as squared or rounded    |  false  |
 |    progressWidth    |    dimension    |     The width of the progress bar    |  |
 |    progressColor    |    color    |     The color of the progress bar    |  | 
