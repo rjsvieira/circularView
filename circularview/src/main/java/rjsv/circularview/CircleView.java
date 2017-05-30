@@ -55,13 +55,21 @@ public class CircleView extends View {
     private int indicatorRadius = 4;
     private Paint indicatorPaint;
     /**
-     * Text Configuration
+     * Value Text Configuration
      */
     private boolean textEnabled = true;
     private float textSize = 72;
+    private int textColor;
     private Paint textPaint;
     private Rect textRect = new Rect();
     private Typeface textTypeFace = Typeface.DEFAULT;
+    /**
+     * Suffix Text Configuration
+     */
+    private boolean suffixEnabled = false;
+    private String suffixValue = "";
+    private Paint suffixPaint;
+    private Rect suffixRect;
     /**
      * Auxiliary Variables
      */
@@ -93,7 +101,7 @@ public class CircleView extends View {
         int arcColor = getColor(context, R.color.color_arc);
         int arcBorderColor = getColor(context, R.color.color_arc_border);
         int progressColor = getColor(context, R.color.color_progress);
-        int textColor = getColor(context, R.color.color_text);
+        textColor = getColor(context, R.color.color_text);
         int indicatorColor = getColor(context, R.color.color_indicator);
 
         progressWidth = (int) (progressWidth * density);
@@ -125,6 +133,9 @@ public class CircleView extends View {
             if (textTypeFacePath != null && GeneralUtils.fileExistsInAssets(getContext(), textTypeFacePath)) {
                 textTypeFace = Typeface.createFromAsset(getResources().getAssets(), textTypeFacePath);
             }
+
+            suffixEnabled = a.getBoolean(R.styleable.CircleView_suffixEnabled, suffixEnabled);
+            suffixValue = a.getString(R.styleable.CircleView_suffixValue);
 
             hasIndicator = a.getBoolean(R.styleable.CircleView_hasIndicator, hasIndicator);
             progressBarSquared = a.getBoolean(R.styleable.CircleView_progressBarSquared, progressBarSquared);
@@ -180,6 +191,17 @@ public class CircleView extends View {
         textPaint.setStyle(Paint.Style.FILL);
         textPaint.setTextSize(textSize);
         textPaint.setTypeface(textTypeFace);
+
+        if (suffixEnabled) {
+            suffixRect = new Rect();
+            suffixPaint = new Paint();
+            suffixPaint.setColor(textColor);
+            suffixPaint.setAntiAlias(true);
+            suffixPaint.setStyle(Paint.Style.FILL);
+            suffixPaint.setTextSize(textSize / 2);
+            suffixPaint.setTypeface(textTypeFace);
+        }
+
     }
 
     // Overridden View Methods
@@ -216,6 +238,12 @@ public class CircleView extends View {
             int xPos = canvas.getWidth() / 2 - textRect.width() / 2;
             int yPos = (int) ((arcRect.centerY()) - ((textPaint.descent() + textPaint.ascent()) / 2));
             canvas.drawText(textPoint, xPos, yPos, textPaint);
+            if (suffixEnabled) {
+                String suffix = suffixValue;
+                suffixPaint.getTextBounds(suffix, 0, suffix.length(), suffixRect);
+                xPos += textRect.width() * 1.5;
+                canvas.drawText(suffix, xPos, yPos, suffixPaint);
+            }
         }
         if (arcHasBorder) {
             canvas.drawArc(arcRect, ANGLE_OFFSET, 360, false, arcBorderPaint);
@@ -363,15 +391,6 @@ public class CircleView extends View {
         return progressCurrentValue;
     }
 
-    // Setters and Getters
-    public boolean isProgressStepAsInteger() {
-        return progressStepAsInteger;
-    }
-
-    public void setProgressStepAsInteger(boolean progressStepAsInteger) {
-        this.progressStepAsInteger = progressStepAsInteger;
-    }
-
     public void setProgressValue(float progressValue) {
         if (progressValue >= progressMinimumValue) {
             if (progressValue > progressMaximumValue) {
@@ -379,6 +398,31 @@ public class CircleView extends View {
             }
             updateProgress(progressValue, false, false);
         }
+    }
+
+    // Setters and Getters
+    public boolean isSuffixEnabled() {
+        return suffixEnabled;
+    }
+
+    public void setSuffixEnabled(boolean suffixEnabled) {
+        this.suffixEnabled = suffixEnabled;
+    }
+
+    public String getSuffixValue() {
+        return suffixValue;
+    }
+
+    public void setSuffixValue(String suffixValue) {
+        this.suffixValue = suffixValue;
+    }
+
+    public boolean isProgressStepAsInteger() {
+        return progressStepAsInteger;
+    }
+
+    public void setProgressStepAsInteger(boolean progressStepAsInteger) {
+        this.progressStepAsInteger = progressStepAsInteger;
     }
 
     public float getProgressAngle() {
