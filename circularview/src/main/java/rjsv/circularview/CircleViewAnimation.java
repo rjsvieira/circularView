@@ -101,10 +101,8 @@ public class CircleViewAnimation extends Animation implements Disposable {
     public void stop() {
         if (circleView != null && isAnimationRunning) {
             isAnimationRunning = false;
-            if (this.circleView != null) {
-                timerManager.removeCallbacks(timerOperation);
-                circleView.clearAnimation();
-            }
+            timerManager.removeCallbacks(timerOperation);
+            circleView.clearAnimation();
         }
     }
 
