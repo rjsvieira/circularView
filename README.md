@@ -29,7 +29,7 @@ allprojects {
 
 ```groovy
 dependencies {
-  compile 'com.github.rjsvieira:circularView:1.1.0'
+  compile 'com.github.rjsvieira:circularView:1.3.0'
 }
 ```
 
@@ -49,6 +49,8 @@ Below is the configuration for the circleView presented on the first gif
   circleview:layout_constraintEnd_toEndOf="parent"
   android:layout_width="500dp"
   android:layout_height="500dp"
+  circleview:suffixEnabled="true"
+  circleview:suffixValue="EUR"
   circleview:arcBorderColor="@color/color_arc"
   circleview:arcColor="@color/color_arc"
   circleview:arcHasBorder="false"
@@ -79,6 +81,8 @@ Below is the configuration for the circleView presented on the first gif
 |    progressBarSquared    |    boolean    |     If there is no indicator overlapping it, the progress bar can be set as squared or rounded    |  false  |
 |    progressWidth    |    dimension    |     The width of the progress bar    |  |
 |    progressColor    |    color    |     The color of the progress bar    |  | 
+|    suffixEnabled    |    boolean    |     Specifies whether a suffix can be added after the progress value. Used to indicate time or currencies, etc    |  false  |
+|    suffixValue    |   string    |     The string value for the suffix. E.g. "EUR"   |  false  |
 |    hasIndicator    |    boolean    |     The indicator is a simple small circle that leads the progress bar    |  false  |
 |    indicatorColor    |    color    |     The indicator's color    |
 |    indicatorRadius    |    integer    |     Specifies the radius, if it exists, of the indicator    |
