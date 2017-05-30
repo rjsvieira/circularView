@@ -34,7 +34,7 @@ public class CircleViewAnimation extends Animation implements Disposable {
 
     // Constructor
     public CircleViewAnimation() {
-        this.startValue = circleView.getProgressValue();
+        this.startValue = 0;
         this.endValue = 0;
         this.circleViewAnimationStyle = AnimationStyle.PERIODIC;
         this.circleViewAnimationListener = new CircleViewAnimationListener();
