@@ -33,19 +33,23 @@ public class CircleViewAnimation extends Animation implements Disposable {
     private Runnable timerOperation;
 
     // Constructor
-    public CircleViewAnimation(final CircleView circleView) {
+    public CircleViewAnimation() {
         this.startValue = circleView.getProgressValue();
         this.endValue = 0;
-        this.circleView = circleView;
         this.circleViewAnimationStyle = AnimationStyle.PERIODIC;
         this.circleViewAnimationListener = new CircleViewAnimationListener();
         this.timerManager = new Handler();
         this.timerOperation = new Runnable() {
             public void run() {
-                System.out.println("rsv -> we have successfully finished");
+                //
             }
         };
         setInterpolator(new LinearInterpolator());
+    }
+
+    public CircleViewAnimation setCircleView(CircleView circleView) {
+        this.circleView = circleView;
+        return this;
     }
 
     public CircleViewAnimation setDuration(float durationInSeconds) {
@@ -84,7 +88,7 @@ public class CircleViewAnimation extends Animation implements Disposable {
 
     // Overridden values
     public void start(float startValue, float endValue) {
-        if (!isAnimationRunning) {
+        if (circleView != null && !isAnimationRunning) {
             this.startValue = startValue;
             this.endValue = endValue;
             setDuration(startValue - endValue);
@@ -95,7 +99,7 @@ public class CircleViewAnimation extends Animation implements Disposable {
     }
 
     public void stop() {
-        if (isAnimationRunning) {
+        if (circleView != null && isAnimationRunning) {
             isAnimationRunning = false;
             if (this.circleView != null) {
                 timerManager.removeCallbacks(timerOperation);
