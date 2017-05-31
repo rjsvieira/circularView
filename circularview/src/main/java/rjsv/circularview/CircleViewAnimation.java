@@ -52,13 +52,13 @@ public class CircleViewAnimation extends Animation implements Disposable {
         return this;
     }
 
-    public CircleViewAnimation setDuration(float durationInSeconds) {
-        setDuration((long) durationInSeconds);
+    public CircleViewAnimation setDuration(float durationInMilliseconds) {
+        setDuration((long) durationInMilliseconds);
         return this;
     }
 
-    public CircleViewAnimation setDuration(int durationInSeconds) {
-        setDuration((long) durationInSeconds);
+    public CircleViewAnimation setDuration(int durationInMilliseconds) {
+        setDuration((long) durationInMilliseconds);
         return this;
     }
 
@@ -91,7 +91,7 @@ public class CircleViewAnimation extends Animation implements Disposable {
         if (circleView != null && !isAnimationRunning) {
             this.startValue = startValue;
             this.endValue = endValue;
-            setDuration(startValue - endValue);
+            setDuration(duration == 0 ? startValue - endValue : duration);
             isAnimationRunning = true;
             circleView.startAnimation(this);
             timerManager.postDelayed(timerOperation, duration * 1000);
@@ -112,9 +112,9 @@ public class CircleViewAnimation extends Animation implements Disposable {
     }
 
     @Override
-    public void setDuration(long durationInSeconds) {
-        duration = durationInSeconds;
-        super.setDuration(duration * 1000);
+    public void setDuration(long durationInMilliseconds) {
+        duration = durationInMilliseconds;
+        super.setDuration(duration);
     }
 
     @Override

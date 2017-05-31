@@ -60,6 +60,7 @@ public class CircleView extends View {
     private boolean textEnabled = true;
     private float textSize = 72;
     private int textColor;
+    private int textDecimalPlaces = 1;
     private Paint textPaint;
     private Rect textRect = new Rect();
     private Typeface textTypeFace = Typeface.DEFAULT;
@@ -128,6 +129,7 @@ public class CircleView extends View {
 
             textSize = (int) a.getDimension(R.styleable.CircleView_textSize, textSize);
             textColor = a.getColor(R.styleable.CircleView_textColor, textColor);
+            textDecimalPlaces = a.getInteger(R.styleable.CircleView_textDecimalPlaces, textDecimalPlaces);
             textEnabled = a.getBoolean(R.styleable.CircleView_textEnabled, textEnabled);
             String textTypeFacePath = a.getString(R.styleable.CircleView_textFont);
             if (textTypeFacePath != null && GeneralUtils.fileExistsInAssets(getContext(), textTypeFacePath)) {
@@ -336,10 +338,10 @@ public class CircleView extends View {
             if (!isAClick) {
                 newValue = getValueForQuadrantCrossing(progressAngle, newValue);
             }
-            progressCurrentValue = GeneralUtils.round(convertAngleToProgress(newValue), 1);
+            progressCurrentValue = GeneralUtils.round(convertAngleToProgress(newValue), textDecimalPlaces);
             progressAngle = newValue;
         } else {
-            progressCurrentValue = GeneralUtils.round(newValue, 1);
+            progressCurrentValue = GeneralUtils.round(newValue, textDecimalPlaces);
             progressAngle = convertProgressToAngle(newValue);
         }
         if (circleViewChangeListener != null) {

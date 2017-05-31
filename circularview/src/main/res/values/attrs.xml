@@ -22,6 +22,7 @@
 		<attr name="textEnabled" format="boolean"/>
 		<attr name="textSize" format="dimension"/>
 		<attr name="textColor" format="color"/>
+		<attr name="textDecimalPlaces" format="integer"/>
 		<attr name="textFont" format="string"/>
 
 		<attr name="suffixEnabled" format="boolean"/>
