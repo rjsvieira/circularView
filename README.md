@@ -71,7 +71,7 @@ Below is the configuration for the circleView presented on the first gif
  ```
 <h2>Attribute configuration list</h2>
 
-| Attribute        | Type           | Default  | Default |
+| Attribute        | Type           | Description  | Default |
 | ------------- |:-------------:| :-----| :------ |
 | progressCurrentValue      | float | The starting value | 0 |
 |    progressMaximumValue    |    float    |     The maximum allowed value of the circle view    | 100 | 
